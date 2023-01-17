@@ -1,0 +1,129 @@
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.main-header {
+  display: flex;
+  position: fixed;
+  width: 100vw;
+  align-items: center;
+  justify-content: space-around;
+  z-index: 3;
+
+  .main-header-logo {
+    width: 8rem;
+  }
+
+  .main-navigation {
+    .menu {
+      .menu-item {
+        display: inline-block;
+      }
+
+      .menu-item-link {
+        position: relative;
+        margin-right: 1.875rem;
+        color: #ffffff;
+        text-decoration: none;
+    
+        &::before {
+          position: absolute;
+          bottom: -0.125rem;
+          display: inline-block;
+          content: '';
+          width: 0;
+          height: 0.125rem;
+          background-color: #ffffff;
+          transition: all ease 0.2s;
+        }
+    
+        &:hover::before {
+          width: 100%;
+          transition: all ease 0.2s;
+        }
+      }
+    }
+  }
+}
+
+.hero {
+  position: relative;
+  height: 100vh;
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: 0.5;
+    z-index: 1;
+  }
+
+  video {
+    position: absolute;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+
+  section {
+    position: relative;
+    z-index: 2;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+
+    .logo {
+      width: 52rem;
+    } 
+
+    .button {
+      position: relative;
+      top: -12rem;
+      display: inline-block;
+      padding: 0.625rem 1.25rem;
+      border-radius: 0.3125rem;
+      border: 0.125rem solid #ffffff;
+      font-weight: bold;
+      color: #ffffff;
+      text-decoration: none;
+      transition: all ease 0.2s;
+    
+      &:hover {
+        color: #000000;
+        background-color: #ffffff;
+        transition: all ease 0.2s;
+      }
+    }
+  }
+}
