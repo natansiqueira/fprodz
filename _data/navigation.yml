@@ -1,0 +1,8 @@
+- name: Home
+  link: /
+- name: Showreel
+  link: /showreel
+- name: Work
+  link: /work
+- name: About
+  link: /about

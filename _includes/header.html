@@ -1,0 +1,16 @@
+<header class="main-header">
+  <a href="/">
+    <img class="main-header-logo" src="/assets/images/logo.png" alt="FPRODZ Logo">
+  </a>
+  <nav class="main-navigation">
+    <ul class="menu">
+      {% for item in site.data.navigation %}
+      <li class="menu-item">
+        <a class="menu-item-link" href="{{ item.link }}">
+          {{ item.name }}
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </nav>
+</header>
