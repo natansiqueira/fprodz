@@ -96,11 +96,16 @@ body {
     z-index: 0;
   }
 
-  section {
+  .home,
+  .about {
     position: relative;
     z-index: 2;
     top: 50%;
-    transform: translateY(-50%);
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .home {
     text-align: center;
 
     .logo {
@@ -124,6 +129,118 @@ body {
         background-color: #ffffff;
         transition: all ease 0.2s;
       }
+    }
+  }
+}
+
+.about {
+  max-width: 62rem;
+  color: #ffffff;
+  text-align: justify;
+
+  h1 {
+    font-size: 4rem;
+    text-transform: uppercase;
+  }
+
+  h2 {
+    font-size: 2rem;
+    text-transform: uppercase;
+  }
+
+  p {
+    font-size: 1.5rem;
+  }
+
+  a {
+    color: #ffffff;
+    text-decoration: none;
+  }
+
+  .social-links {
+    margin-top: 2rem;
+
+    .social-link-item {
+      display: inline-block;
+      padding: 0.4rem;
+      border-radius: 0.425rem;
+      transition: all 0.5s ease-in;
+
+      .btn-copy, span {
+        display: none;
+        position: relative;
+        padding: 0;
+        top: -1.125rem;
+        color: #000000;
+      }
+
+      .btn-copy {
+        background: none;
+        border: none;
+        cursor: pointer;
+        vertical-align: middle;
+
+        svg {
+          width: 1rem;
+          vertical-align: middle;
+          transition: all 0.3s ease-in-out;
+        }
+
+        &:active svg {
+          padding: 0.05rem;
+        }
+
+        &::before {
+          position: absolute;
+          bottom: -0.125rem;
+          display: inline-block;
+          content: '';
+          width: 0;
+          height: 0.125rem;
+          background-color: #000000;
+          transition: all ease 0.3s;
+        }
+    
+        &:hover::before {
+          width: 90%;
+          transition: all ease 0.3s;
+        }
+      }
+
+      .icon {
+        display: inline-block;
+        width: 3rem;
+        fill: #ffffff;
+      }
+
+      &:hover {
+        background-color: #ffffff;
+      }
+
+      &:hover .icon {
+        fill: #000000;
+      }
+
+      &:hover .btn-copy {
+        display: inline-block;
+      }
+
+      &:hover .btn-copy svg {
+        animation-name: shake;
+        animation-duration: 1s;
+      }
+
+      @keyframes shake {
+        0% { transform: rotate(0deg); }
+        25% { transform: rotate(5deg); }
+        50% { transform: rotate(0eg); }
+        75% { transform: rotate(-5deg); }
+        100% { transform: rotate(0deg); }
+      }
+    }
+
+    .social-link-item:nth-child(2) {
+      margin-left: 1rem;
     }
   }
 }
