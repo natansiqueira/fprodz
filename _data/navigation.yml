@@ -1,3 +1,5 @@
+- name: Home
+  link: /
 - name: Showreel
   link: /showreel
 - name: Work
