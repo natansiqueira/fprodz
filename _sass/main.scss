@@ -97,7 +97,8 @@ body {
   }
 
   .home,
-  .about {
+  .about,
+  .korea {
     position: relative;
     z-index: 2;
     top: 50%;
@@ -133,7 +134,23 @@ body {
   }
 }
 
-.about {
+.vimeo-video {
+  position: relative;
+}
+
+.vimeo-video-korea {
+  padding: 42.19% 0 0 0;
+}
+
+.vimeo-video-penalty,
+.vimeo-video-codex {
+  padding: 56.25% 0 0 0;
+}
+
+.about,
+.korea,
+.penalty,
+.codex {
   max-width: 62rem;
   color: #ffffff;
   text-align: justify;
@@ -156,91 +173,190 @@ body {
     color: #ffffff;
     text-decoration: none;
   }
+}
 
-  .social-links {
-    margin-top: 2rem;
+.korea,
+.penalty,
+.codex {
+  text-align: center;
+}
 
-    .social-link-item {
-      display: inline-block;
-      padding: 0.4rem;
-      border-radius: 0.425rem;
-      transition: all 0.5s ease-in;
+.social-links {
+  margin-top: 2rem;
 
-      .btn-copy, span {
-        display: none;
-        position: relative;
-        padding: 0;
-        top: -1.125rem;
-        color: #000000;
-      }
+  .social-link-item {
+    display: inline-block;
+    padding: 0.4rem;
+    border-radius: 0.425rem;
+    transition: all 0.5s ease-in;
 
-      .btn-copy {
-        background: none;
-        border: none;
-        cursor: pointer;
+    .btn-copy, span {
+      display: none;
+      position: relative;
+      padding: 0;
+      top: -1.125rem;
+      color: #000000;
+    }
+
+    .btn-copy {
+      background: none;
+      border: none;
+      cursor: pointer;
+      vertical-align: middle;
+
+      svg {
+        width: 1rem;
         vertical-align: middle;
-
-        svg {
-          width: 1rem;
-          vertical-align: middle;
-          transition: all 0.3s ease-in-out;
-        }
-
-        &:active svg {
-          padding: 0.05rem;
-        }
-
-        &::before {
-          position: absolute;
-          bottom: -0.125rem;
-          display: inline-block;
-          content: '';
-          width: 0;
-          height: 0.125rem;
-          background-color: #000000;
-          transition: all ease 0.3s;
-        }
-    
-        &:hover::before {
-          width: 90%;
-          transition: all ease 0.3s;
-        }
+        transition: all 0.3s ease-in-out;
       }
 
-      .icon {
+      &:active svg {
+        padding: 0.05rem;
+      }
+
+      &::before {
+        position: absolute;
+        bottom: -0.125rem;
         display: inline-block;
-        width: 3rem;
-        fill: #ffffff;
+        content: '';
+        width: 0;
+        height: 0.125rem;
+        background-color: #000000;
+        transition: all ease 0.3s;
       }
-
-      &:hover {
-        background-color: #ffffff;
-      }
-
-      &:hover .icon {
-        fill: #000000;
-      }
-
-      &:hover .btn-copy {
-        display: inline-block;
-      }
-
-      &:hover .btn-copy svg {
-        animation-name: shake;
-        animation-duration: 1s;
-      }
-
-      @keyframes shake {
-        0% { transform: rotate(0deg); }
-        25% { transform: rotate(5deg); }
-        50% { transform: rotate(0eg); }
-        75% { transform: rotate(-5deg); }
-        100% { transform: rotate(0deg); }
+  
+      &:hover::before {
+        width: 90%;
+        transition: all ease 0.3s;
       }
     }
 
-    .social-link-item:nth-child(2) {
-      margin-left: 1rem;
+    .icon {
+      display: inline-block;
+      width: 3rem;
+      fill: #ffffff;
     }
+
+    &:hover {
+      background-color: #ffffff;
+    }
+
+    &:hover .icon {
+      fill: #000000;
+    }
+
+    &:hover .btn-copy {
+      display: inline-block;
+    }
+
+    &:hover .btn-copy svg {
+      animation-name: shake;
+      animation-duration: 1s;
+    }
+
+    @keyframes shake {
+      0% { transform: rotate(0deg); }
+      25% { transform: rotate(5deg); }
+      50% { transform: rotate(0eg); }
+      75% { transform: rotate(-5deg); }
+      100% { transform: rotate(0deg); }
+    }
+  }
+
+  .social-link-item:nth-child(2) {
+    margin-left: 1rem;
+  }
+}
+
+.projects {
+  display: flex;
+  justify-content: space-between;
+
+  .korea-case,
+  .penalty--casecase,
+  .codex-case {
+    background-size: cover;
+    background-position: 50% 50%;
+  }
+
+  .korea-case {
+    background-image: url('/assets/images/ultra-korea.png');
+  }
+
+  .penalty-case {
+    background-image: url('/assets/images/penalty.png');
+  }
+
+  .codex-case {
+    background-image: url('/assets/images/codex.png');
+  }
+}
+
+.project-link {
+  display: block;
+  width: 33.333%;
+  text-decoration: none;
+  color: #000000;
+  transition: width .5s ease-in;
+
+  &:hover {
+    width: 50%;
+  }
+}
+
+.project {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  height: 100vh;
+  overflow: hidden;
+
+  .project-video {
+    position: absolute;
+    top: 0;
+    left: -50%;
+    opacity: 0;
+  }
+
+  .project-wrap {
+    padding: 1rem 1rem 0 1rem;
+    width: 100%;
+    transition: all .5s ease-in-out;
+    z-index: 3;
+
+    .project-name {
+      color: #ffffff;
+      text-transform: uppercase;
+    }
+
+    .project-line {
+      margin: 1rem 0;
+      width: 0;
+      height: 2px;
+      background-color: #ffffff;
+      transition: width .5s ease-in;
+    }
+
+    .project-description {
+      height: 0;
+      transition: height .5s ease-in-out;
+    }
+  }
+
+  &:hover .project-video {
+    opacity: 1;
+  }
+
+  &:hover .project-wrap {
+    color: #ffffff;
+    background-color: #000000;
+  }
+
+  &:hover .project-line {
+    width: 100%;
+  }
+
+  &:hover .project-description {
+    height: 100px;
   }
 }

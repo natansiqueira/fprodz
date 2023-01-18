@@ -1,0 +1,15 @@
+- name: Teaser - Ultra Korea 2019
+  class: korea-case
+  link: /work/korea
+  description: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex facilis voluptatum tempora quas laboriosam!
+  video: /assets/videos/ultra-korea.mp4
+- name: Penalty - Virus
+  class: penalty-case
+  link: /work/penalty
+  description: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex facilis voluptatum tempora quas laboriosam!
+  video: /assets/videos/penalty.mp4
+- name: Teaser - Codex
+  class: codex-case
+  link: /work/codex
+  description: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex facilis voluptatum tempora quas laboriosam!
+  video: /assets/videos/codex.mp4
