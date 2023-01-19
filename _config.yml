@@ -2,9 +2,10 @@ title: FPRODZ
 email: felipe.fprodz@gmail.com
 description: "Passionate about stories, we understand that our greatest purpose is to communicate and entertain people through art and technology"
 baseurl: "/"
-url: "fprodz.com"
+url: "https://fprodz.com"
 logo: "/assets/images/logo.png"
 locale: "en-US"
 
 plugins:
   - jekyll-seo-tag
+  - jekyll-sitemap
