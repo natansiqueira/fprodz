@@ -20,30 +20,15 @@
 }
 
 *,
-*:before,
-*:after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 html {
   font-size: 16px;
-}
-
-body, h1, h2, h3, h4, h5, h6, p, ol, ul {
-  margin: 0;
-  padding: 0;
-  font-weight: normal;
-}
-
-ol, ul {
-  list-style: none;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
 }
 
 body {
@@ -52,45 +37,352 @@ body {
 
 .main-header {
   display: flex;
+  width: 100%;
   position: fixed;
-  padding: 0 4rem;
-  width: 100vw;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   z-index: 3;
+}
 
-  .main-header-logo {
-    width: 8rem;
+
+.main-header-logo {
+  width: 128px;
+  height: 128px;
+}
+
+.hamburger {
+  position: relative;
+  display: inline-block;
+  width: 30px;
+  height: 2px;
+  background-color: #ffffff;
+  transition: .5s ease-in-out;
+}
+
+.hamburger::before,
+.hamburger::after {
+  position: absolute;
+  content: '';
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  transition: .5s ease-in-out;
+}
+
+.hamburger::before {
+  top: -10px;
+}
+
+.hamburger::after {
+  bottom: -10px;
+}
+
+#nav {
+  display: none;
+}
+
+#nav:checked ~ .nav-list {
+  opacity: 1;
+  visibility: visible;
+}
+
+#nav:checked ~ label .menu {
+  box-shadow: 0 0 0 130vw #000000, 0 0 0 130vh #000000;
+  background-color: #000000;
+  border-radius: 0;
+}
+
+#nav:checked ~ label .hamburger,
+#nav:checked ~ label .hamburger:before,
+#nav:checked ~ label .hamburger:after {
+  background-color: #ffffff;
+}
+
+#nav:checked ~ label .hamburger {
+  transform: rotate(45deg);
+}
+
+#nav:checked ~ label .hamburger:after {
+  transform: rotate(90deg);
+  bottom: 0;
+}
+
+#nav:checked ~ label .hamburger:before {
+  transform: rotate(90deg);
+  top: 0;
+}
+
+.menu {
+  margin-right: 25px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  box-shadow: 0 0 0 0 #000000, 0 0 0 0 #000000;
+  opacity: 1;
+  visibility: visible;
+  border-radius: 50%;
+  z-index: 4;
+}
+
+.nav-list {
+  position: fixed;
+  z-index: 4;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  visibility: hidden;
+  list-style: none;
+  text-align: center;
+}
+
+.nav-item:nth-child(2) {
+  display: none;
+}
+
+.nav-item {
+  margin-bottom: 50px;
+}
+
+.nav-link {
+  position: relative;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 2rem;
+}
+
+.button {
+  top: -10vh;
+}
+
+.projects {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  overflow: scroll;
+}
+
+.project-link {
+  display: block;
+  height: 33.333%;
+  text-decoration: none;
+  color: #000000;
+  z-index: 2;
+}
+
+.project-video {
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.project-name {
+  margin-top: 250px;
+  margin-left: 16px;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.korea-case,
+.penalty-case,
+.codex-case {
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.korea-case {
+  background-image: url('/assets/images/ultra-korea.png');
+}
+
+.penalty-case {
+  background-image: url('/assets/images/penalty.png');
+}
+
+.codex-case {
+  background-image: url('/assets/images/codex.png');
+}
+
+.about {
+  padding: 20px;
+}
+
+.about,
+.korea,
+.penalty,
+.codex {
+  max-width: 62rem;
+  color: #ffffff;
+  text-align: justify;
+
+  h1 {
+    font-size: 2rem;
+    text-transform: uppercase;
   }
 
-  .main-navigation {
-    .menu {
-      .menu-item {
-        display: inline-block;
+  p {
+    font-size: 1rem;
+  }
+
+  a {
+    color: #ffffff;
+    text-decoration: none;
+  }
+}
+
+.about {
+  font-family: 'Nimbus', Arial, Helvetica, sans-serif;
+
+  h1 {
+    font-family: 'Sattelar', Arial, Helvetica, sans-serif;
+  }
+}
+
+@media screen and (min-width: 992px) {	
+  .about,
+  .korea,
+  .penalty,
+  .codex {
+    h1 {
+      font-size: 6rem;
+    }
+  
+    p {
+      font-size: 1.4rem;
+    }
+  }
+
+  .main-header {
+    padding: 0 4rem;
+  }
+
+	.menu {
+    margin-right: 0;
+		opacity: 0;
+		visibility: hidden;
+	}
+
+	.nav-list {
+		position: relative;
+		opacity: 1;
+		visibility: visible;
+		top: 0;
+		left: 0;
+		transform: none;
+	}
+
+	.nav-item {
+		display: inline-block;
+	}
+
+  .nav-item:nth-child(2) {
+    display: inline-block;
+  }
+  
+
+  .nav-link {
+    margin-right: 1.875rem;
+    font-size: 1rem;
+
+    &::before {
+      position: absolute;
+      bottom: -0.125rem;
+      display: inline-block;
+      content: '';
+      width: 0;
+      height: 0.125rem;
+      background-color: #ffffff;
+      transition: all ease 0.2s;
+    }
+
+    &:hover::before {
+      width: 100%;
+      transition: all ease 0.2s;
+    }
+  }
+  
+  .button {
+    top: -13vh;
+  }  
+
+  .projects {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    height: auto;
+  }
+  
+  .project-link {
+    display: block;
+    width: 33.333%;
+    text-decoration: none;
+    color: #000000;
+    transition: width .5s ease-in;
+    z-index: 2;
+  
+    &:hover {
+      width: 50%;
+    }
+  }
+  
+  .project {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    height: 100vh;
+    overflow: hidden;
+  
+    .project-video {
+      position: absolute;
+      display: block;
+      top: 0;
+      left: -50%;
+      opacity: 0;
+      visibility: hidden;
+    }
+  
+    .project-wrap {
+      padding: 1rem 1rem 0 1rem;
+      width: 100%;
+      transition: all .5s ease-in-out;
+      z-index: 3;
+  
+      .project-line {
+        margin: 1rem 0;
+        width: 0;
+        height: 2px;
+        background-color: #ffffff;
+        transition: width .5s ease-in;
       }
 
-      .menu-item-link {
-        position: relative;
-        margin-right: 1.875rem;
-        color: #ffffff;
-        text-decoration: none;
-    
-        &::before {
-          position: absolute;
-          bottom: -0.125rem;
-          display: inline-block;
-          content: '';
-          width: 0;
-          height: 0.125rem;
-          background-color: #ffffff;
-          transition: all ease 0.2s;
-        }
-    
-        &:hover::before {
-          width: 100%;
-          transition: all ease 0.2s;
-        }
+      .project-name {
+        margin-top: 0;
+        margin-left: 0;
       }
+  
+      .project-description {
+        height: 0;
+        transition: height .5s ease-in-out;
+      }
+    }
+  
+    &:hover .project-video {
+      opacity: 1;
+      visibility: visible;
+    }
+  
+    &:hover .project-wrap {
+      color: #ffffff;
+      background-color: #000000;
+    }
+  
+    &:hover .project-line {
+      width: 100%;
+    }
+  
+    &:hover .project-description {
+      height: 3.75rem;
     }
   }
 }
@@ -103,6 +395,7 @@ body {
     position: absolute;
     top: 0;
     left: 0;
+    top: -12rem;
     height: 100%;
     width: 100%;
     background-color: black;
@@ -130,14 +423,14 @@ body {
 
   .home {
     text-align: center;
+    
 
     .logo {
-      width: 52rem;
+      width: max(375px, 40vw);
     } 
 
     .button {
       position: relative;
-      top: -12rem;
       display: inline-block;
       padding: 0.625rem 1.25rem;
       border-radius: 0.3125rem;
@@ -182,41 +475,6 @@ body {
       width: 100%;
       height: 54rem;
     }
-  }
-}
-
-.about,
-.korea,
-.penalty,
-.codex {
-  max-width: 62rem;
-  color: #ffffff;
-  text-align: justify;
-
-  h1 {
-    font-size: 4rem;
-    text-transform: uppercase;
-  }
-
-  h2 {
-    font-size: 2rem;
-  }
-
-  p {
-    font-size: 1.5rem;
-  }
-
-  a {
-    color: #ffffff;
-    text-decoration: none;
-  }
-}
-
-.about {
-  font-family: 'Nimbus', Arial, Helvetica, sans-serif;
-
-  h1 {
-    font-family: 'Sattelar', Arial, Helvetica, sans-serif;
   }
 }
 
@@ -267,12 +525,6 @@ body {
         width: 0;
         height: 0.125rem;
         background-color: #000000;
-        transition: all ease 0.3s;
-      }
-  
-      &:hover::before {
-        width: 90%;
-        transition: all ease 0.3s;
       }
     }
 
@@ -313,95 +565,3 @@ body {
   }
 }
 
-.projects {
-  display: flex;
-  justify-content: space-between;
-
-  .korea-case,
-  .penalty-case,
-  .codex-case {
-    background-size: cover;
-    background-position: 50% 50%;
-  }
-
-  .korea-case {
-    background-image: url('/assets/images/ultra-korea.png');
-  }
-
-  .penalty-case {
-    background-image: url('/assets/images/penalty.png');
-  }
-
-  .codex-case {
-    background-image: url('/assets/images/codex.png');
-  }
-}
-
-.project-link {
-  display: block;
-  width: 33.333%;
-  text-decoration: none;
-  color: #000000;
-  transition: width .5s ease-in;
-
-  &:hover {
-    width: 50%;
-  }
-}
-
-.project {
-  position: relative;
-  display: flex;
-  align-items: flex-end;
-  height: 100vh;
-  overflow: hidden;
-
-  .project-video {
-    position: absolute;
-    top: 0;
-    left: -50%;
-    opacity: 0;
-  }
-
-  .project-wrap {
-    padding: 1rem 1rem 0 1rem;
-    width: 100%;
-    transition: all .5s ease-in-out;
-    z-index: 3;
-
-    .project-name {
-      color: #ffffff;
-      text-transform: uppercase;
-    }
-
-    .project-line {
-      margin: 1rem 0;
-      width: 0;
-      height: 2px;
-      background-color: #ffffff;
-      transition: width .5s ease-in;
-    }
-
-    .project-description {
-      height: 0;
-      transition: height .5s ease-in-out;
-    }
-  }
-
-  &:hover .project-video {
-    opacity: 1;
-  }
-
-  &:hover .project-wrap {
-    color: #ffffff;
-    background-color: #000000;
-  }
-
-  &:hover .project-line {
-    width: 100%;
-  }
-
-  &:hover .project-description {
-    height: 3.75rem;
-  }
-}

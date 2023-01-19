@@ -1,10 +1,23 @@
 <header class="main-header">
-  <a href="/">
-    <img class="main-header-logo" src="/assets/images/logo.png" alt="FPRODZ Logo">
-  </a>
+  <div>
+    <a href="/">
+      <img class="main-header-logo" src="/assets/images/logo.png" alt="FPRODZ Logo">
+    </a>
+  </div>
   <nav class="main-navigation">
-    <ul class="menu">
-      {% for item in site.data.navigation %}<li class="menu-item"><a class="menu-item-link" href="{{ item.link }}">{{ item.name }}</a></li>{% endfor %}
+    <input id="nav" type='checkbox'>
+    <label for="nav">
+        <div class='menu'>
+            <span class='hamburger'></span>
+        </div>
+    </label>
+    
+    <ul class="nav-list">
+      {% for item in site.data.navigation %}
+      <li class="nav-item">
+        <a class="nav-link" href="{{ item.link }}">{{ item.name }}</a>
+      </li>
+      {% endfor %}
     </ul>
   </nav>
 </header>
