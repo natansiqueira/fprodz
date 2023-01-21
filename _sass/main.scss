@@ -517,7 +517,7 @@ body {
         padding: 0.05rem;
       }
 
-      &::before {
+      &:before {
         position: absolute;
         bottom: -0.125rem;
         display: inline-block;
@@ -525,6 +525,11 @@ body {
         width: 0;
         height: 0.125rem;
         background-color: #000000;
+        transition: width .2s ease-in;
+      }
+
+      &:hover:before {
+        width: 90%;
       }
     }
 
